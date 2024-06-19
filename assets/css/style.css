@@ -9,7 +9,11 @@ body {
     padding: 0;
     background-color: #bde0fe; /* Cor de fundo da tela */
     font-family: Arial, sans-serif;
+    font-size: 16px;
+}
 
+h1, h2, p {
+    margin: 0 0 1em; /* Define margens para cabeçalhos e parágrafos */
 }
 
 .container {
@@ -36,8 +40,10 @@ body {
     background-color: #cdb4db; /* Cor de fundo do menu */
     position: fixed; /* Fixa o menu no topo da tela */
     top: 0;
-    left: 0;
+    right: 0;
     z-index: 1000;
+    padding: 10px;
+    
 }
 #menu li a {
     text-decoration: none;
@@ -46,8 +52,14 @@ body {
 }
 
 #menu li a:hover {
-    color: goldenrod;
+    color: #ffafcc;
 }
+
+.content {
+    padding-top: 60px; /* Ajuste conforme a altura do seu menu */
+    padding: 80px;
+}
+
 .p-30 {
     padding: 30px;
 }
@@ -60,6 +72,33 @@ body {
 }
 .size {
     font-size: 16px;
+}
+
+button {
+    width: 25%;
+    margin: 0 auto;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+button:hover {
+    background-color: var(--dark-red);
+    color: var(--soft-gray);
+    cursor: pointer;
+    transition: .5s ease-in-out;
+}
+
+@media screen and (max-width: 600px) {
+    .conteudo {
+    min-width: 400px;
+    flex-direction: column;
+    max-width: 600px;
+    }
+
+    .paragrafos {
+    font-size: 14px;
+    width: 80%;
+    }
 }
 
 
