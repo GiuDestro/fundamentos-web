@@ -39,27 +39,29 @@ function validaNome() {
 
 function validaEmail() {
     let txtEmail = document.querySelector('#txtEmail')
-
-    if(email.value.indexOf('@') == -1 || email.value.indexOf('.')  == -1) {
-        txtEmail.innerHTML = 'Email Inválido'
-        txtEmail.style.color = 'red'
-    } else {
+    let regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    if(email.value.match(regex)) {
         txtEmail.innerHTML= 'Email Válido'
         txtEmail.style.color = 'green'
         emailOk = true
+    } else {
+        txtEmail.innerHTML = 'Email Inválido'
+        txtEmail.style.color = 'red'
 }
 
 }
 
 function validaAssunto() {
+
     let txtAssunto = document.querySelector('#txtAssunto')
     if(assunto.value.length >= 100) {
         txtAssunto.innerHTML = 'Texto muito longo. Digite no máximo 100 caracteres'
         txtAssunto.style.color = 'red'
         txtAssunto.style.display = 'block'
     } else {
-        txtAssunto.style.display = 'none'
-        assuntoOk = true
+        txtAssunto.innerHTML = assunto.value.length + '/100'
+        txtAssunto.style.color = '#2b2d42'
+        mensagemOk = true
 }
 
 }
@@ -74,12 +76,12 @@ function enviar() {
 }
 
 function mapaZoom() {
-    mapa.style.width = '800px' 
-    mapa.style.height = '600px'
+    mapa.style.width = '500px' 
+    mapa.style.height = '300px'
 }
 
 function mapaNormal() {
-    mapa.style.width = '400px' 
-    mapa.style.height = '250px'
+    mapa.style.width = '300px' 
+    mapa.style.height = '150px'
 
 }
