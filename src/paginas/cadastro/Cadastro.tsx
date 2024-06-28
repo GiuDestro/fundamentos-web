@@ -144,7 +144,7 @@ return (
         </form>
     </div>
     </>
-)
+    )
 }
 
 export default Cadastro
