@@ -42,11 +42,12 @@ function ListaTemas() {
         {temas.length === 0 && (
         <Oval
             visible={true}
-            height="200"
-            width="200"
+            height="100"
+            width="100"
             ariaLabel="dna-loading"
             wrapperStyle={{}}
             wrapperClass="dna-wrapper mx-auto"
+            color='#e63946'
         />
         )}
         <div className="flex justify-center w-full my-4">
