@@ -4,6 +4,7 @@ import Usuario from '../../models/Usuario';
 import { cadastrarUsuario } from '../../services/Service';
 import './Cadastro.css';
 import React from 'react';
+import { toastAlerta } from '../../util/toastAlerta';
 
 function Cadastro() {
 const navigate = useNavigate();
@@ -52,16 +53,16 @@ async function cadastrarNovoUsuario(e: ChangeEvent<HTMLFormElement>) {
     if (confirmarSenha === usuario.senha && usuario.senha.length >= 8) {
       // depois, iremos tentar cadastrar o usuário no backend, e caso tudo de certo, encerramos o código dentro do TRY
     try {
-        // iremos aguardar a Promisse do Axios, de que ele levará nossos dados ao servidor, e se tudo der certo, damos o alerta e fim.
+        // iremos aguardar a Promisse do Axios, de que ele levará nossos dados ao servidor, e se tudo der certo, damos o toastAlertaa e fim.
         await cadastrarUsuario('/usuarios/cadastrar', usuario, setUsuarioResposta);
-        alert('Usuário cadastrado com sucesso');
+        toastAlerta('Usuário cadastrado com sucesso', 'sucesso');
     } catch (error) {
-        // caso de algum erro no cadastro que tentamos no TRY, a parte do Catch irá reconhecer isso, e dar um alerta diferente para o nosso usuário
-        alert('Cadastro não foi finalizado');
+        // caso de algum erro no cadastro que tentamos no TRY, a parte do Catch irá reconhecer isso, e dar um toastAlertaa diferente para o nosso usuário
+        toastAlerta('Cadastro não foi finalizado', 'info');
     }
     } else {
       // caso tenha algum problema na validação das senhas, toda a parte acima será desconsiderada, e iremos para esse ELSE
-    alert('Dados inconsistentes. Verifique as informações de cadastro.')
+    toastAlerta('Dados inconsistentes. Verifique as informações de cadastro.', 'info')
       setUsuario({ ...usuario, senha: "" }) // Reinicia o campo de Senha
       setConfirmarSenha("")                 // Reinicia o campo de Confirmar Senha
     }
